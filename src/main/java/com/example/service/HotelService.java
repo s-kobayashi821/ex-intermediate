@@ -1,9 +1,7 @@
 package com.example.service;
 
 import com.example.domain.Hotel;
-import com.example.domain.Team;
 import com.example.repository.HotelRepository;
-import com.example.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,12 +23,11 @@ public class HotelService {
      * @return チーム情報のリスト
      */
     public List<Hotel> getHotelList(final Integer cost) {
-        if(cost == null)
-        {
-            return  repository.getAll();
+        if(cost == null) {
+            return  repository.findAll();
         }
 
-        return repository.getHotelsUnderCost(cost);
+        return repository.findByLeqPrice(cost);
     }
 
 

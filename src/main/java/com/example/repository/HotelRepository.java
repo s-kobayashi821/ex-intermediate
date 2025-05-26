@@ -1,7 +1,6 @@
 package com.example.repository;
 
 import com.example.domain.Hotel;
-import com.example.domain.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * ホテル情報を管理するクラス.
+ * hotelsテーブルを操作するリポジトリ.
  *
  */
 @Repository
@@ -38,7 +37,7 @@ public class HotelRepository {
      *
      * @return 条件に合うホテル一覧情報
      */
-    public List<Hotel> getHotelsUnderCost(final int price){
+    public List<Hotel> findByLeqPrice(final int price){
         String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking " +
                 "FROM hotels WHERE price <= :price ORDER BY price DESC;";
         SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
@@ -51,7 +50,7 @@ public class HotelRepository {
      *
      * @return ホテル一覧情報
      */
-    public List<Hotel> getAll(){
+    public List<Hotel> findAll(){
         String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking " +
                 "FROM hotels ORDER BY price DESC;";
         List<Hotel> hotelList = template.query(sql, HOTEL_ROW_MAPPER);

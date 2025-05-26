@@ -41,14 +41,14 @@ public class HotelController {
         }
 
         Integer price = inputPrice.isEmpty()?null:Integer.valueOf(inputPrice);
-        List<Hotel> getHotelList = service.getHotelList(price);
-        if(getHotelList.size() == 0){
+        List<Hotel> hotelList = service.getHotelList(price);
+        if(hotelList.size() == 0){
             model.addAttribute("msg", "検索結果が0件でした");
             return "hotelList";
         }
 
         model.addAttribute("inputPrice", inputPrice);
-        model.addAttribute("hotelList", getHotelList);
+        model.addAttribute("hotelList", hotelList);
         return  "hotelList";
     }
 
