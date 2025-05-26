@@ -1,12 +1,11 @@
 package com.example.domain;
 
-import java.util.Date;
-
 public class Team {
     private  Integer id;
     private String leagueName;
+    private String teamName;
     private  String headquarters;
-    private Date inauguration;
+    private String inauguration;
     private String history;
 
     public Integer getId() {
@@ -29,15 +28,23 @@ public class Team {
         return headquarters;
     }
 
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
     public void setHeadquarters(String headquarters) {
         this.headquarters = headquarters;
     }
 
-    public Date getInauguration() {
+    public String getInauguration() {
         return inauguration;
     }
 
-    public void setInauguration(Date inauguration) {
+    public void setInauguration(String inauguration) {
         this.inauguration = inauguration;
     }
 
