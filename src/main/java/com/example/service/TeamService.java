@@ -27,7 +27,7 @@ public class TeamService {
     }
 
     /**
-     * idによってチーム情報を検索する
+     * idによってチーム情報を検索する.
      *
      * @param id チームid
      * @return チーム情報

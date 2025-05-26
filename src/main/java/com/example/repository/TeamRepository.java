@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * チーム情報を管理するクラス
+ * チーム情報を管理するクラス.
  *
  */
 @Repository
@@ -34,7 +34,7 @@ public class TeamRepository {
     /**
      * チーム一覧を取得する.
      *
-     * @return
+     * @return チーム一覧情報
      */
     public List<Team> findAll(){
         String sql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM teams ORDER BY inauguration;";

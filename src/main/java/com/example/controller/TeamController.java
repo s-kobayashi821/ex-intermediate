@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
- * チーム情報を管理するコントローラ
+ * チーム情報を管理するコントローラ.
  *
  */
 @Controller
@@ -21,20 +21,29 @@ public class TeamController {
     @Autowired
     private TeamService service;
 
+    /**
+     *チーム一覧画面表示.
+     *
+     * @param model リクエストスコープ
+     * @return チーム一覧画面
+     */
     @GetMapping("")
     public  String teamList(Model model){
         List<Team> teamList = service.getAllTeam();
         model.addAttribute("teamList", teamList);
-//        System.out.println(teamList);
         return "teamlist";
     }
 
+    /**
+     * チーム詳細画面を表示.
+     *
+     * @param id チームid
+     * @return チーム詳細画面
+     */
     @GetMapping("/Detail")
     public String Detail(String id, Model model){
-        System.out.println("id=" + id);
         Team team = service.getTeamById(Integer.valueOf(id));
         model.addAttribute("team", team);
-        System.out.println(team);
         return "teamdetail";
     }
 }
