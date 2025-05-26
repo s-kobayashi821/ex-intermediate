@@ -1,7 +1,7 @@
 package com.example.domain;
 
 /**
- * ホテルドメイン
+ * ホテルドメイン.
  */
 public class Hotel {
     /**id*/
@@ -20,7 +20,7 @@ public class Hotel {
     private String nearestStation;
 
     /**価格*/
-    private String price;
+    private Integer price;
 
     /**駐車場*/
     private String parking;
@@ -78,11 +78,11 @@ public class Hotel {
         this.nearestStation = nearestStation;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
